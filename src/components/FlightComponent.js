@@ -57,7 +57,11 @@ const FlightComponent = (props) =>
       },
       {
         Header: "Status",
-        accessor: "status"
+        accessor: "status",
+        filterMethod: (filter, row) => {
+          const id = filter.pivotId || filter.id
+          return (row[id] !== undefined) && (row[id] !== null) ? String(row[id].toLowerCase()).startsWith(filter.value.toLowerCase()) : false
+        }
       }
     ]}
     defaultPageSize={10}

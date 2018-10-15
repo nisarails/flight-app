@@ -24,7 +24,7 @@ class FlightContainer extends Component {
         <h2>Flight information</h2>
         <Tabs defaultActiveKey={true} onSelect={this.handleSelect} id="uncontrolled-tab-example">
           {tabsInfo.map((t) => {
-            return <Tab eventKey={t.key} title={t.title}>
+            return <Tab key={t.key} eventKey={t.key} title={t.title}>
               <FlightComponent flights={this.props.flights} />
             </Tab>;
           })}
